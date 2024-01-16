@@ -1,3 +1,4 @@
+
 # Get Next Line (GNL)
 
 ## Overview
@@ -8,15 +9,17 @@
 ### Function Prototype
 ```c
 char *get_next_line(int fd);
+```
 
-Parameters
-fd: File descriptor representing the file or standard input to be read.
-Return Value
-A string pointer if a line has been successfully read.
-NULL if the end of the file is reached or an error occurs.
+### Parameters
+- `fd`: File descriptor representing the file or standard input to be read.
 
-Example
+### Return Value
+- A string pointer if a line has been successfully read.
+- NULL if the end of the file is reached or an error occurs.
 
+## Example
+```c
 #include "get_next_line.h"
 #include <fcntl.h>
 #include <stdio.h>
@@ -34,12 +37,17 @@ int main(void)
     close(fd);
     return (0);
 }
+```
+This example opens the file `example.txt` and prints each line. Remember to free the memory after printing each line.
 
-This example opens the file example.txt and prints each line. Remember to free the memory after printing each line.
+## Installation and Compilation
+To use `get_next_line`, include its source file and header file in your project. Compile the source file along with your main program.
 
-Installation and Compilation
-To use get_next_line, include its source file and header file in your project. Compile the source file along with your main program.
-
+```bash
 gcc -Wall -Wextra -Werror -D BUFFER_SIZE=32 main.c get_next_line.c -o gnl
+```
+The `BUFFER_SIZE` macro defines the buffer size for reading. Adjust this value to optimize performance.
 
-The BUFFER_SIZE macro defines the buffer size for reading. Adjust this value to optimize performance.
+## Notes
+- `get_next_line` uses dynamic memory allocation, so be sure to free the memory after use.
+- Close the file using the `close` function after you are done with the file.
