@@ -34,7 +34,7 @@ int main(void)
     close(fd);
     return (0);
 }
-
+'''
 This example opens the file example.txt and prints each line. Remember to free the memory after printing each line.
 
 Installation and Compilation
